@@ -7,7 +7,7 @@ body {
   color: #333;
   padding-top: 80px;
 }
-
+/*
 header {
   background: #2e86de;
   color: #fff;
@@ -34,7 +34,7 @@ header nav a {
   margin-left: 20px;
   font-weight: 500;
   margin-right: 30px;
-}
+}*/
 
 .hero {
   background: #dfefff;
@@ -160,103 +160,81 @@ footer {
 
 
 
-/* ====== BASE STYLES (Desktop First) ====== */
+/* ===== HEADER BASE STYLES ===== */
 header {
+  background: #2e86de;
+  color: #fff;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  background-color: #2e86de;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  z-index: 100;
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  z-index: 999;
 }
 
-header h1 {
-  font-size: 28px;
-  font-weight: bold;
-  margin: 0;
-  color: #333;
-}
-
-.nav-links {
-  display: flex;
-  gap: 20px;
-}
-
-.nav-links a {
+header a {
   text-decoration: none;
-  font-size: 16px;
-  color: #333;
-  transition: color 0.3s ease;
+  color: white;
 }
 
-.nav-links a:hover {
-  color: #007bff;
+header nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 500;
+  margin-right: 30px;
 }
 
-/* Hamburger icon hidden on desktop */
-.hamburger {
+/* ===== HAMBURGER TOGGLE (HIDDEN BY DEFAULT) ===== */
+.menu-toggle {
   display: none;
-  flex-direction: column;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: white;
   cursor: pointer;
 }
 
-.hamburger span {
-  height: 3px;
-  width: 25px;
-  background: #333;
-  margin: 4px 0;
-  border-radius: 3px;
-  transition: all 0.3s ease;
-}
-
-/* ====== MOBILE STYLES ====== */
-@media (max-width: 768px) {
+/* ===== MOBILE VIEW ===== */
+@media screen and (max-width: 768px) {
   header {
-    padding: 12px 20px; /* reduce header padding */
+    padding: 10px 15px; /* smaller header height */
   }
 
   header h1 {
-    font-size: 20px; /* smaller text for PropView360 */
+    font-size: 1.2rem; /* smaller logo text */
   }
 
-  .nav-links {
-    position: fixed;
-    top: 0;
-    right: -100%; /* start off-screen */
-    height: 100vh;
-    width: 70%;
-    background-color: white;
+  /* Hide nav by default on mobile */
+  header nav {
+    display: none;
     flex-direction: column;
-    align-items: start;
-    padding: 80px 20px;
-    gap: 20px;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    transition: right 0.3s ease;
+    background: #2e86de;
+    position: absolute;
+    top: 60px; /* just below header */
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
   }
 
-  /* When menu is active */
-  .nav-links.active {
-    right: 0; /* slide in fully visible */
+  header nav a {
+    margin: 10px 15px;
+    display: block;
+    text-align: left;
   }
 
-  .hamburger {
-    display: flex; /* show hamburger on mobile */
+  /* Show nav when active */
+  header nav.active {
+    display: flex;
+  }
+
+  /* Show menu toggle on mobile */
+  .menu-toggle {
+    display: block;
   }
 }
 
-/* ====== HAMBURGER ANIMATION WHEN ACTIVE ====== */
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}

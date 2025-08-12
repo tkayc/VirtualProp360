@@ -7,19 +7,20 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* Make header fixed */
+    /* Make header fixed 
     header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       text-decoration: none;
+      background: #2e86de;
       color: white;
     }
 
     header nav a{
         margin-right: 30px;
-    }
+    }*/
 
     /* Adjust hero for fixed header */
     .hero {
@@ -69,7 +70,7 @@
 </head>
 <body>
 
-  <!--
+<!--
   <header>
     <a href="#"><h1>🏠 PropView360</h1></a>
     <nav>
@@ -78,19 +79,18 @@
       <a href="list.html">List a Property</a>
     </nav>
   </header>
- -->
+-->
+  
 <header>
-  <a href="index.html"><h1>🏠 PropView360</h1></a>
-
+  <a href="#"><h1>🏠 PropView360</h1></a>
+  <button class="menu-toggle">☰</button>
   <nav>
-    <div id="menu-icon" class="menu-icon" aria-label="Open menu" role="button" tabindex="0">&#9776;</div>
-    <ul id="nav-links" class="nav-links">
-      <li><a href="#.html">Home</a></li>
-      <li><a href="properties.html">View Property</a></li>
-      <li><a href="list.html">List A Property</a></li>
-    </ul>
+    <a href="#">Home</a>
+    <a href="properties.html">View Properties</a>
+    <a href="list.html">List a Property</a>
   </nav>
 </header>
+
 
 
 
@@ -128,29 +128,14 @@
 
 
   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const menuIcon = document.getElementById('menu-icon');
-    const navLinks = document.getElementById('nav-links');
+  const menuToggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector("header nav");
 
-    if (menuIcon && navLinks) {
-      menuIcon.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-      });
-
-      // Close menu when a link is clicked (mobile UX)
-      navLinks.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => {
-          navLinks.classList.remove('active');
-        });
-      });
-
-      // Optional: close on Esc key
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') navLinks.classList.remove('active');
-      });
-    }
+  menuToggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
   });
 </script>
+
 
 
 </body>
