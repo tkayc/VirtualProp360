@@ -64,10 +64,60 @@
       width: 60px;
       margin-bottom: 15px;
     }
+
+
+
+
+
+
+    /* Hide nav links by default on mobile */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #2e86de;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    border-radius: 8px;
+    padding: 10px;
+    width: 150px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li a {
+    color: white;
+    padding: 10px 0;
+    display: block;
+  }
+
+  .menu-icon {
+    display: block;
+    color: white;
+  }
+}
+
   </style>
 </head>
 <body>
 
+  <!--
   <header>
     <a href="#"><h1>🏠 PropView360</h1></a>
     <nav>
@@ -76,6 +126,20 @@
       <a href="list.html">List a Property</a>
     </nav>
   </header>
+ -->
+<header>
+  <a href="index.html"><h1>🏠 PropView360</h1></a>
+
+  <nav>
+    <div class="menu-icon" id="menu-icon">&#9776;</div> <!-- Hamburger icon -->
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="property.html">View Property</a></li>
+    </ul>
+  </nav>
+</header>
+
+
 
   <!-- Hero Section -->
   <section class="hero">
@@ -106,6 +170,17 @@
   <footer>
     <p>© 2025 PropView360 • Virtual Property Tour built by Takunda 🚀</p>
   </footer>
+
+
+
+  <script>
+  const menuIcon = document.getElementById('menu-icon');
+  const navLinks = document.getElementById('nav-links');
+
+  menuIcon.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
 
 </body>
 </html>
