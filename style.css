@@ -164,21 +164,27 @@ footer {
 header {
   background: #2e86de;
   color: #fff;
-  padding: 20px;
+  padding: 20px 40px; /* increased horizontal padding for desktop */
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-decoration: none;
-  z-index: 100;
+  z-index: 1000; /* higher to stay on top */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  box-sizing: border-box;
 }
 
 header a {
   text-decoration: none;
   color: white;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
 }
 
 header nav a {
@@ -202,11 +208,11 @@ header nav a {
 /* ===== MOBILE VIEW ===== */
 @media screen and (max-width: 768px) {
   header {
-    padding: 10px 15px; /* smaller header height */
+    padding: 10px 15px; /* smaller header height on mobile */
   }
 
   header h1 {
-    font-size: 1.2rem; /* smaller logo text */
+    font-size: 1.2rem; /* smaller logo text on mobile */
   }
 
   /* Hide nav by default on mobile */
@@ -219,6 +225,7 @@ header nav a {
     left: 0;
     width: 100%;
     padding: 10px 0;
+    box-sizing: border-box;
   }
 
   header nav a {
