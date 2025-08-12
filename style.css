@@ -160,26 +160,20 @@ footer {
 
 
 
-/* ===== HEADER BASE STYLES ===== */
+/* Base header */
 header {
   background: #2e86de;
-  color: #fff;
-  padding: 20px 40px; /* increased horizontal padding for desktop */
+  color: white;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-decoration: none;
-  z-index: 1000; /* higher to stay on top */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 1000;
   box-sizing: border-box;
-}
-
-header a {
-  text-decoration: none;
-  color: white;
 }
 
 header h1 {
@@ -187,15 +181,18 @@ header h1 {
   font-size: 28px;
 }
 
-header nav a {
+header a {
   color: white;
   text-decoration: none;
+}
+
+header nav a {
   margin-left: 20px;
   font-weight: 500;
   margin-right: 30px;
 }
 
-/* ===== HAMBURGER TOGGLE (HIDDEN BY DEFAULT) ===== */
+/* Hamburger button - hidden desktop */
 .menu-toggle {
   display: none;
   font-size: 1.8rem;
@@ -205,43 +202,43 @@ header nav a {
   cursor: pointer;
 }
 
-/* ===== MOBILE VIEW ===== */
-@media screen and (max-width: 768px) {
+/* MOBILE STYLES */
+@media (max-width: 768px) {
   header {
-    padding: 10px 15px; /* smaller header height on mobile */
+    padding: 10px 15px;
   }
 
   header h1 {
-    font-size: 1.2rem; /* smaller logo text on mobile */
+    font-size: 1.2rem;
   }
 
-  /* Hide nav by default on mobile */
+  /* Show hamburger button */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Hide nav links by default */
   header nav {
     display: none;
-    flex-direction: column;
-    background: #2e86de;
     position: absolute;
     top: 60px; /* just below header */
     left: 0;
     width: 100%;
+    background: #2e86de;
+    flex-direction: column;
     padding: 10px 0;
     box-sizing: border-box;
   }
 
+  /* Show nav links when active */
+  header nav.active {
+    display: flex;
+  }
+
+  /* Nav links style for mobile */
   header nav a {
     margin: 10px 15px;
     display: block;
     text-align: left;
   }
-
-  /* Show nav when active */
-  header nav.active {
-    display: flex;
-  }
-
-  /* Show menu toggle on mobile */
-  .menu-toggle {
-    display: block;
-  }
 }
-
