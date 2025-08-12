@@ -194,6 +194,7 @@ header nav a {
 
 /* Hamburger button - hidden desktop */
 .menu-toggle {
+  outline: none;
   display: none;
   font-size: 1.8rem;
   background: none;
@@ -215,6 +216,7 @@ header nav a {
   /* Show hamburger button */
   .menu-toggle {
     display: block;
+    padding: 0 5px;
   }
 
   /* Hide nav links by default */
