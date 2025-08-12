@@ -203,3 +203,16 @@ footer {
     color: white;
   }
 }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(51, 51, 51, 0.8);
+    position: fixed;
+    top: 0;
+    right: 10; /* Changed from 250px to 0 so it's at the edge */
+    width: 100%;
+}
+
