@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PropView360 - Virtual Property Tours</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Make header fixed */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      text-decoration: none;
+      color: white;
+    }
+
+    header nav a{
+        margin-right: 30px;
+    }
+
+    /* Adjust hero for fixed header */
+    .hero {
+      padding-top: 120px;
+      padding-bottom: 60px;
+    }
+
+    /* Hero big background */
+    .hero {
+      background: linear-gradient(rgba(46,134,222,0.8), rgba(46,134,222,0.8)),
+                  url('images/hero-banner.jpg') center/cover no-repeat;
+      color: white;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 40px 20px;
+      background: #fff;
+    }
+
+    .feature-card {
+      background: #dfefff;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .feature-card img {
+      width: 60px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="#"><h1>🏠 PropView360</h1></a>
+    <nav>
+      <a href="#">Home</a>
+      <a href="properties.html">View Properties</a>
+      <a href="list.html">List a Property</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Your Virtual Gateway to Property Tours</h2>
+    <p>Explore verified properties across South Africa — all from the comfort of your screen.</p>
+    <a href="properties.html" class="btn">Browse Properties</a>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="feature-card">
+      <img src="images/virtual.png" alt="Virtual Tours">
+      <h3>Virtual Tours</h3>
+      <p>Walk through homes, apartments, and offices in immersive 360° views.</p>
+    </div>
+    <div class="feature-card">
+      <img src="images/verified.gif" alt="Verified Listings">
+      <h3>Verified Listings</h3>
+      <p>Every property is reviewed to ensure you get accurate and safe information.</p>
+    </div>
+    <div class="feature-card">
+      <img src="images/customer-service.png" alt="Easy Contact">
+      <h3>Easy Contact</h3>
+      <p>Reach owners or agents quickly with our built-in contact options.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 PropView360 • Virtual Property Tour built by Takunda 🚀</p>
+  </footer>
+
+</body>
+</html>

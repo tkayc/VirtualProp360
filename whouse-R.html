@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modern Apartment – PropView360</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-content {
+      margin: 10% auto;
+      display: block;
+      max-width: 80%;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .modal-content {
+        width: 95%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html"><h1>🏠 PropView360</h1></a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="properties.html">View Property</a>
+      <a href="list.html">List a Property</a>
+    </nav>
+  </header>
+
+  <section class="property-detail">
+    <h2>Factory – Pretoria</h2>
+    <p class="price">R17 000 for 3 years</p>
+
+    <div class="gallery">
+      <img src="images/whouse1.jpg" alt="whouse1" id="whouse1Img" />
+      <img src="images/whouse-inside.jpg" alt="whouse" id="whouse-insideImg" />
+      <img src="images/whouse-office.webp" alt="office" id="officeImg" />
+      <img src="images/warehouse2.jpg" alt="whouse2" id="whouse2Img" />
+      
+    </div>
+
+    <div class="description">
+      <h3>Property Features</h3>
+      <ul>
+        <li>Sitting on 8500m<sup>2</sup> of land</li>
+        <li>5000m<sup>2</sup> factory size</li>
+        <li>Inside Office</li>
+        <li>Industrial Floor</li>
+      </ul>
+
+      <p>Spacious factory available on a rent-to-own basis, 
+        featuring 8,500m² of land, a 5,000m² factory space, 
+        dedicated inside office, and durable industrial flooring — 
+        ideal for manufacturing or large-scale operations.</p>
+    </div>
+
+    <a href="lease.pdf" download class="btn">Download Lease Agreement</a>
+  </section>
+
+  <section class="contact-form">
+    <h3>Book a Viewing</h3>
+    <form action="#">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" placeholder="Enter your full name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" rows="4" placeholder="Ask a question or request a viewing..." required></textarea>
+
+      <button type="submit" class="btn">Submit Request</button>
+    </form>
+  </section>
+
+  <!-- Modal -->
+  <div id="imgModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="imgPreview">
+  </div>
+
+  <footer>
+    <p>© 2025 PropView360 • Virtual Property Tour built by Takunda 🚀</p>
+  </footer>
+
+  <script>
+    // Get elements
+    const whouse1Img = document.getElementById('whouse1Img');
+    const whouse_insideImg = document.getElementById('whouse-insideImg');
+    const officeImg = document.getElementById('officeImg');
+    const whouse2Img = document.getElementById('whouse2Img');
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('imgPreview');
+    const closeBtn = document.querySelector('.close');
+
+    // Open modal on image click
+    whouse1Img.onclick = function() {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    }
+
+    whouse_insideImg.onclick = function() {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    }
+
+    officeImg.onclick = function() {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    }
+
+    whouse2Img.onclick = function() {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    }
+
+    // Close modal on close button click
+    closeBtn.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // Also close when clicking outside image
+    modal.onclick = function(e) {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>

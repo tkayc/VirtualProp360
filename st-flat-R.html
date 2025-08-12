@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modern Apartment – PropView360</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-content {
+      margin: 10% auto;
+      display: block;
+      max-width: 80%;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .modal-content {
+        width: 95%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html"><h1>🏠 PropView360</h1></a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="properties.html">View Property</a>
+      <a href="list.html">List a Property</a>
+    </nav>
+  </header>
+
+  <section class="property-detail">
+    <h2>Student Accomodation – Bramfontein</h2>
+    <p class="price">R60 000/month for 2 years </p>
+
+    <div class="gallery">
+      <img src="images/sbath.jpg" alt="common-area" id="careaImg" />
+      <img src="images/sdorm.jpg" alt="dorm1" id="dorm1Img" />
+      <img src="images/sdorm1.avif" alt="dorm2" id="dorm2Img" />
+      <img src="images/skitchen.png" alt="Kitchen" id="kitchenImg" />
+      <img src="images/gym.jpg" alt="dorm1" id="gymImg" />
+    </div>
+
+    <div class="description">
+      <h3>Property Features</h3>
+      <ul>
+        <li>35 Rooms</li>
+        <li>1 Bathroom per 4 Students</li>
+        <li>Wi-Fi Included</li>
+        <li>24/7 Security</li>
+        <li>Gym Area</li>
+        <li>Cooking Areas</li>
+        <li>Walking distance to Wits</li>
+      </ul>
+
+      <p>This cozy apartment is perfect for students attending at Wits campus. Located in a secure complex just 5 minutes from UCT main entrance.</p>
+    </div>
+
+    <a href="lease.pdf" download class="btn">Download Lease Agreement</a>
+  </section>
+
+  <section class="contact-form">
+    <h3>Book a Viewing</h3>
+    <form action="#">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" placeholder="Enter your full name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" rows="4" placeholder="Ask a question or request a viewing..." required></textarea>
+
+      <button type="submit" class="btn">Submit Request</button>
+    </form>
+  </section>
+
+  <!-- Modal -->
+  <div id="imgModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="imgPreview">
+  </div>
+
+  <footer>
+    <p>© 2025 PropView360 • Virtual Property Tour built by Takunda 🚀</p>
+  </footer>
+
+  <script>
+    // Get elements
+    const kitchenImg = document.getElementById('kitchenImg');
+    const dorm2Img = document.getElementById('dorm2Img');
+    const dorm1Img = document.getElementById('dorm1Img');
+    const careaImg = document.getElementById('careaImg');
+    const _gymImg = document.getElementById('gymImg');
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('imgPreview');
+    const closeBtn = document.querySelector('.close');
+
+    // Open modal on image click
+    kitchenImg.onclick = function() {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    }
+
+    dorm2Img.onclick = function() {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    }
+    dorm1Img.onclick = function() {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    }
+
+    careaImg.onclick = function() {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    }
+    
+    _gymImg.onclick = function() {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    }
+    
+// Close modal on close button click
+    closeBtn.onclick = function() {
+      modal.style.display = "none";
+    }
+
+
+    // Also close when clicking outside image
+    modal.onclick = function(e) {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
