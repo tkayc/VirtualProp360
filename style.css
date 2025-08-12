@@ -160,54 +160,90 @@ footer {
 
 
 
+/* Ensure header is fixed and body content doesn't hide under it */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 18px 20px; /* adjust if your header height differs */
+  box-sizing: border-box;
+}
 
-/* Hide nav links by default on mobile */
+/* Desktop nav (unchanged) */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 20px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
 }
 
+/* hamburger hidden on desktop */
 .menu-icon {
   display: none;
   font-size: 28px;
   cursor: pointer;
 }
 
-/* Responsive styles */
+/* Keep page content clear of fixed header */
+body {
+  padding-top: 70px; /* match approx header height */
+  box-sizing: border-box;
+}
+
+/* MOBILE STYLES */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background-color: #2e86de;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    border-radius: 8px;
-    padding: 10px;
-    width: 150px;
+  /* show hamburger */
+  .menu-icon {
+    display: block;
+    color: #fff;
   }
 
+  /* hide default nav layout */
+  .nav-links {
+    display: none; /* will show when .active */
+    position: fixed;
+    top: 70px;                 /* below header; adjust if header height changes */
+    left: 10px;                /* small inset from left */
+    right: 10px;               /* small inset from right - prevents overflow */
+    max-width: calc(100% - 20px);
+    margin: 0 auto;
+    background: #2e86de;       /* same blue as your header */
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    flex-direction: column;
+    gap: 8px;
+    z-index: 999;
+  }
+
+  /* visible state */
   .nav-links.active {
     display: flex;
   }
 
-  .nav-links li a {
-    color: white;
-    padding: 10px 0;
-    display: block;
+  .nav-links li {
+    margin: 0;
   }
 
-  .menu-icon {
+  .nav-links a {
+    color: #fff;
+    padding: 10px;
     display: block;
-    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
   }
 
-  ul {
-        margin-right: 10px; /* pull it in from the right */
-        padding-right: 0; /* optional: remove extra padding */
-    }
+  /* optional: make the hamburger align to the right inside nav */
+  header nav { display: flex; align-items: center; gap: 12px; }
+  header h1 { margin: 0; font-size: 1.1rem; }
+  .menu-icon { margin-left: auto; }
 }
+
 
 
 

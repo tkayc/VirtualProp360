@@ -83,13 +83,15 @@
   <a href="index.html"><h1>🏠 PropView360</h1></a>
 
   <nav>
-    <div class="menu-icon" id="menu-icon">&#9776;</div> <!-- Hamburger icon -->
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="property.html">View Property</a></li>
+    <div id="menu-icon" class="menu-icon" aria-label="Open menu" role="button" tabindex="0">&#9776;</div>
+    <ul id="nav-links" class="nav-links">
+      <li><a href="#.html">Home</a></li>
+      <li><a href="index.html">View Property</a></li>
+      <li><a href="list.html">List A Property</a></li>
     </ul>
   </nav>
 </header>
+
 
 
 
@@ -126,13 +128,30 @@
 
 
   <script>
-  const menuIcon = document.getElementById('menu-icon');
-  const navLinks = document.getElementById('nav-links');
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuIcon = document.getElementById('menu-icon');
+    const navLinks = document.getElementById('nav-links');
 
-  menuIcon.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+    if (menuIcon && navLinks) {
+      menuIcon.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+
+      // Close menu when a link is clicked (mobile UX)
+      navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+        });
+      });
+
+      // Optional: close on Esc key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') navLinks.classList.remove('active');
+      });
+    }
   });
 </script>
+
 
 </body>
 </html>
