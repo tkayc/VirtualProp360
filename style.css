@@ -160,90 +160,103 @@ footer {
 
 
 
-/* Ensure header is fixed and body content doesn't hide under it */
+/* ====== BASE STYLES (Desktop First) ====== */
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-  z-index: 1000;
-  padding: 18px 20px; /* adjust if your header height differs */
-  box-sizing: border-box;
+  z-index: 999;
 }
 
-/* Desktop nav (unchanged) */
+header h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+}
+
 .nav-links {
-  list-style: none;
   display: flex;
   gap: 20px;
-  margin: 0;
-  padding: 0;
-  align-items: center;
 }
 
-/* hamburger hidden on desktop */
-.menu-icon {
+.nav-links a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
+
+/* Hamburger icon hidden on desktop */
+.hamburger {
   display: none;
-  font-size: 28px;
+  flex-direction: column;
   cursor: pointer;
 }
 
-/* Keep page content clear of fixed header */
-body {
-  padding-top: 70px; /* match approx header height */
-  box-sizing: border-box;
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: #333;
+  margin: 4px 0;
+  border-radius: 3px;
+  transition: all 0.3s ease;
 }
 
-/* MOBILE STYLES */
+/* ====== MOBILE STYLES ====== */
 @media (max-width: 768px) {
-  /* show hamburger */
-  .menu-icon {
-    display: block;
-    color: #fff;
+  header {
+    padding: 12px 20px; /* reduce header padding */
   }
 
-  /* hide default nav layout */
+  header h1 {
+    font-size: 20px; /* smaller text for PropView360 */
+  }
+
   .nav-links {
-    display: none; /* will show when .active */
     position: fixed;
-    top: 70px;                 /* below header; adjust if header height changes */
-    left: 10px;                /* small inset from left */
-    right: 10px;               /* small inset from right - prevents overflow */
-    max-width: calc(100% - 20px);
-    margin: 0 auto;
-    background: #2e86de;       /* same blue as your header */
-    padding: 12px;
-    border-radius: 10px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    top: 0;
+    right: -100%; /* start off-screen */
+    height: 100vh;
+    width: 70%;
+    background-color: white;
     flex-direction: column;
-    gap: 8px;
-    z-index: 999;
+    align-items: start;
+    padding: 80px 20px;
+    gap: 20px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
   }
 
-  /* visible state */
+  /* When menu is active */
   .nav-links.active {
-    display: flex;
+    right: 0; /* slide in fully visible */
   }
 
-  .nav-links li {
-    margin: 0;
+  .hamburger {
+    display: flex; /* show hamburger on mobile */
   }
-
-  .nav-links a {
-    color: #fff;
-    padding: 10px;
-    display: block;
-    text-decoration: none;
-    text-align: center;
-    font-weight: 600;
-  }
-
-  /* optional: make the hamburger align to the right inside nav */
-  header nav { display: flex; align-items: center; gap: 12px; }
-  header h1 { margin: 0; font-size: 1.1rem; }
-  .menu-icon { margin-left: auto; }
 }
 
+/* ====== HAMBURGER ANIMATION WHEN ACTIVE ====== */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
 
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
 
-
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
