@@ -79,42 +79,59 @@
 
 
   <main>
-    <h2>List Your Property</h2>
-    <form action="#" method="post" enctype="multipart/form-data">
+  <h2>List Your Property</h2>
+  <form id="propertyForm" action="#" method="post" enctype="multipart/form-data">
 
-      <label for="propertyType">Property Type</label>
-      <select id="propertyType" name="propertyType" required>
-        <option value="" disabled selected>Select type</option>
-        <option value="sale">For Sale</option>
-        <option value="rent">For Rent</option>
-        <option value="rent-to-own">Rent To Own</option>
-      </select>
+    <label for="propertyType">Property Type</label>
+    <select id="propertyType" name="propertyType" required>
+      <option value="" disabled selected>Select type</option>
+      <option value="sale">For Sale</option>
+      <option value="rent">For Rent</option>
+      <option value="rent-to-own">Rent To Own</option>
+    </select>
 
-      <label for="location">Location</label>
-      <input type="text" id="location" name="location" placeholder="e.g. Rosebank, Johannesburg" required />
+    <label for="location">Location</label>
+    <input type="text" id="location" name="location" placeholder="e.g. Rosebank, Johannesburg" required />
 
-      <label for="cost">Cost (R)</label>
-      <input type="number" id="cost" name="cost" placeholder="e.g. 1200000 or 8500" required />
+    <label for="cost">Cost (R)</label>
+    <input type="number" id="cost" name="cost" placeholder="e.g. 1200000 or 8500" required />
 
-      <label>Amenities</label>
-      <div class="amenities">
-        <label><input type="checkbox" name="amenities" value="Wi-Fi" /> Wi-Fi</label>
-        <label><input type="checkbox" name="amenities" value="Parking" /> Parking</label>
-        <label><input type="checkbox" name="amenities" value="Security" /> Security</label>
-        <label><input type="checkbox" name="amenities" value="Pool" /> Pool</label>
-      </div>
+    <label>Amenities</label>
+    <div class="amenities">
+      <label><input type="checkbox" name="amenities" value="Wi-Fi" /> Wi-Fi</label>
+      <label><input type="checkbox" name="amenities" value="Parking" /> Parking</label>
+      <label><input type="checkbox" name="amenities" value="Security" /> Security</label>
+      <label><input type="checkbox" name="amenities" value="Pool" /> Pool</label>
+    </div>
 
-      <label for="description">Description</label>
-      <textarea id="description" name="description" rows="4" placeholder="Brief description of your property..." required></textarea>
+    <label for="description">Description</label>
+    <textarea id="description" name="description" rows="4" placeholder="Brief description of your property..." required></textarea>
 
-      <label for="images">Upload Images (max 5)</label>
-      <input type="file" id="images" name="images" accept="image/*" multiple required />
+    <label for="images">Upload Images (max 5)</label>
+    <input type="file" id="images" name="images" accept="image/*" multiple required />
 
-      <button type="submit" class="sub-btn">Submit Listing</button>
-    </form>
-  </main>
+    <button type="submit" class="sub-btn">Submit Listing</button>
+  </form>
 
-  <script>
+  <!-- Success message -->
+  <p id="successMessage" style="display:none; color:green; font-weight:bold; margin-top:10px;">
+    Your property has been listed
+  </p>
+</main>
+
+<script>
+  document.getElementById("propertyForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Stop form from reloading page
+
+    // Check if all required fields are valid
+    if (this.checkValidity()) {
+      document.getElementById("successMessage").style.display = "block";
+      this.reset(); // Clear form after submission
+    } else {
+      this.reportValidity(); // Show built-in browser validation messages
+    }
+  });
+
     document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
     const nav = document.querySelector('header nav');
